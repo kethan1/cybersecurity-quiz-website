@@ -27,7 +27,6 @@ export default function HomePage() {
           <Card className="mb-8 border-2 border-primary/20 shadow-lg">
             <CardHeader className="text-center">
               <CardTitle className="text-2xl text-primary flex items-center justify-center gap-2">
-                <span className="text-3xl">🎯</span>
                 What You'll Learn
               </CardTitle>
               <CardDescription className="text-lg">
@@ -70,14 +69,12 @@ export default function HomePage() {
 
           {/* Quiz Info */}
           <Card className="mb-8 bg-accent/50 border-accent">
-            <CardContent className="pt-6">
+            <CardContent>
               <div className="flex items-center justify-center gap-4 mb-4">
-                <span className="text-3xl">📊</span>
                 <div className="text-center">
                   <h3 className="text-xl font-semibold">12 Questions</h3>
                   <p className="text-muted-foreground">About 10-15 minutes</p>
                 </div>
-                <span className="text-3xl">⏱️</span>
               </div>
               <p className="text-center text-muted-foreground">
                 Each question teaches you something new about staying safe online. You'll get helpful explanations for

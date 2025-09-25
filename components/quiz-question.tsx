@@ -125,7 +125,7 @@ export function QuizQuestion({
         <Card
           className={`border-2 ${selectedAnswer.isCorrect ? "border-primary bg-primary/5" : "border-destructive bg-destructive/5"} animate-in slide-in-from-bottom-4`}
         >
-          <CardContent className="pt-6">
+          <CardContent>
             <div className="flex items-start gap-3">
               {selectedAnswer.isCorrect ? (
                 <CheckCircle className="w-6 h-6 text-green-500 mt-1 flex-shrink-0" />
@@ -134,7 +134,7 @@ export function QuizQuestion({
               )}
               <div>
                 <h3 className="font-semibold text-lg mb-2">
-                  {selectedAnswer.isCorrect ? "Great job! 🎉" : "Not quite right, but that's okay! 💪"}
+                  {selectedAnswer.isCorrect ? "Great job!" : "Not quite right, but that's okay!"}
                 </h3>
                 <p className="text-muted-foreground">
                   {selectedAnswer.explanation ||
@@ -149,12 +149,12 @@ export function QuizQuestion({
       {/* Warning Demo */}
       {showWarning && warningDemo && (
         <Card className="border-2 border-orange-500 bg-orange-50 dark:bg-orange-950/20 animate-in slide-in-from-bottom-4">
-          <CardContent className="pt-6">
+          <CardContent>
             <div className="flex items-start gap-3">
               <AlertTriangle className="w-6 h-6 text-orange-500 mt-1 flex-shrink-0" />
               <div>
                 <h3 className="font-semibold text-lg mb-2 text-orange-800 dark:text-orange-200">
-                  ⚠️ {warningDemo.title}
+                  {warningDemo.title}
                 </h3>
                 <p className="text-orange-700 dark:text-orange-300 mb-3">{warningDemo.description}</p>
                 <div className="bg-orange-100 dark:bg-orange-900/30 p-3 rounded-lg border border-orange-200 dark:border-orange-800">
