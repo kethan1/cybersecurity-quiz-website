@@ -1,31 +1,33 @@
 "use client"
 
-import { useState, useEffect } from "react"
+import { useState, useEffect, use } from "react"
 import { useRouter } from "next/navigation"
 import { useTranslations } from "next-intl"
 import { QuizLayout } from "@/components/quiz-layout"
 import { QuizQuestion } from "@/components/quiz-question"
 import { Button } from "@/components/ui/button"
-import { getQuestionById, getNextQuestionId, TOTAL_QUESTIONS } from "@/lib/quiz-data"
+import { getLocalizedQuestion, getNextQuestionId, TOTAL_QUESTIONS } from "@/lib/quiz-data"
 import { useQuizStore } from "@/lib/quiz-store"
 
 interface QuizPageProps {
-  params: {
-    id: string;
-    locale: string;
-  }
+  params: Promise<{
+    id: string
+    locale: string
+  }>
 }
 
 export default function QuizPage({ params }: QuizPageProps) {
-  const t = useTranslations("quiz")
+  const { id, locale } = use(params)
+
+  const t = useTranslations()
   const router = useRouter()
-  const questionId = Number.parseInt(params.id)
+  const questionId = Number.parseInt(id)
   const [answered, setAnswered] = useState(false)
   const [isCorrect, setIsCorrect] = useState(false)
 
   const { addAnswer, getAnswerForQuestion } = useQuizStore()
 
-  const question = getQuestionById(questionId)
+  const question = getLocalizedQuestion(t as any, questionId)
   const nextQuestionId = getNextQuestionId(questionId)
   const existingAnswer = getAnswerForQuestion(questionId)
 
@@ -44,7 +46,7 @@ export default function QuizPage({ params }: QuizPageProps) {
       <QuizLayout currentQuestion={questionId} totalQuestions={TOTAL_QUESTIONS}>
         <div className="text-center py-12">
           <h1 className="text-2xl font-bold mb-4">{t("questionNotFound")}</h1>
-          <Button onClick={() => router.push(`/${params.locale}`)}>{t("goBack")}</Button>
+          <Button onClick={() => router.push(`/${locale}`)}>{t("goBack")}</Button>
         </div>
       </QuizLayout>
     )
@@ -60,9 +62,9 @@ export default function QuizPage({ params }: QuizPageProps) {
 
   const handleNext = () => {
     if (nextQuestionId) {
-      router.push(`/${params.locale}/quiz/${nextQuestionId}`)
+      router.push(`/${locale}/quiz/${nextQuestionId}`)
     } else {
-      router.push(`/${params.locale}/quiz/results`)
+      router.push(`/${locale}/quiz/results`)
     }
   }
 
@@ -89,13 +91,13 @@ export default function QuizPage({ params }: QuizPageProps) {
               {nextQuestionId ? (
                 <>
                   <span className="mr-2">➡️</span>
-                  {t("nextQuestion")}
+                  {t("quiz.nextQuestion")}
                   <span className="ml-2">➡️</span>
                 </>
               ) : (
                 <>
                   <span className="mr-2">🎉</span>
-                  {t("seeResults")}
+                  {t("quiz.seeResults")}
                   <span className="ml-2">🎉</span>
                 </>
               )}

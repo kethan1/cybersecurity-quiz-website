@@ -1,6 +1,6 @@
 import { Suspense, ReactNode } from "react";
 import { notFound } from "next/navigation";
-import { Kavoon, Inter_Tight } from "next/font/google";
+import { Kavoon, Poppins } from "next/font/google";
 import type { Metadata } from "next";
 import { Analytics } from "@vercel/analytics/next";
 import { NextIntlClientProvider, hasLocale } from "next-intl";
@@ -21,9 +21,10 @@ const kavoon = Kavoon({
   variable: "--font-kavoon",
 });
 
-const inter = Inter_Tight({
+const poppins = Poppins({
   subsets: ["latin"],
-  variable: "--font-inter",
+  weight: ["100", "200", "300", "400", "500", "600", "700", "800", "900"],
+  variable: "--font-poppins",
 });
 
 type Props = {
@@ -39,7 +40,7 @@ export default async function Layout({ children, params }: Props) {
 
   return (
     <html lang={locale} suppressHydrationWarning>
-      <body className={`font-sans ${inter.variable} ${kavoon.variable}`}>
+      <body className={`font-sans ${poppins.variable} ${kavoon.variable}`}>
         <NextIntlClientProvider>
           <Suspense fallback={null}>
             <ThemeProvider

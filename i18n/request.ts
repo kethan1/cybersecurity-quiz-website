@@ -14,8 +14,3 @@ export default getRequestConfig(async ({ requestLocale }) => {
     messages: (await import(`../messages/${locale}.json`)).default,
   };
 });
-
-export async function getQuizQuestions(locale: string) {
-  const { quizQuestions } = await import("../lib/quiz-data");
-  return quizQuestions;
-}

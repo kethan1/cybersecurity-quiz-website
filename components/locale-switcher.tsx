@@ -23,7 +23,7 @@ export function LocaleSwitcher() {
 
   return (
     <Select defaultValue={currentLocale} onValueChange={handleChange}>
-      <SelectTrigger>
+      <SelectTrigger className="border-border border-1">
         <SelectValue />
       </SelectTrigger>
       <SelectContent>

@@ -26,7 +26,6 @@ export default function HomePage() {
         {/* Header */}
         <header className="text-center mb-12">
           <div className="mb-6">
-            <div className="text-6xl mb-4 animate-bounce-gentle">🛡️</div>
             <h1 className="text-4xl md:text-6xl font-bold text-primary mb-4 text-balance">
               {t("app.title")}
             </h1>
