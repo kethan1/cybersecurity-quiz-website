@@ -6,7 +6,7 @@ import { useTranslations } from "next-intl"
 import { QuizLayout } from "@/components/quiz-layout"
 import { QuizQuestion } from "@/components/quiz-question"
 import { Button } from "@/components/ui/button"
-import { getQuestionById, getNextQuestionId, TOTAL_QUESTIONS } from "@/lib/quiz-data"
+import { getLocalizedQuestion, getNextQuestionId, TOTAL_QUESTIONS } from "@/lib/quiz-data"
 import { useQuizStore } from "@/lib/quiz-store"
 
 interface QuizPageProps {
@@ -25,7 +25,7 @@ export default function QuizPage({ params }: QuizPageProps) {
 
   const { addAnswer, getAnswerForQuestion } = useQuizStore()
 
-  const question = getQuestionById(questionId)
+  const question = getLocalizedQuestion(t as any, questionId)
   const nextQuestionId = getNextQuestionId(questionId)
   const existingAnswer = getAnswerForQuestion(questionId)
 
