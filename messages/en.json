@@ -1,0 +1,112 @@
+{
+  "app": {
+    "title": "Privacy Protector Quiz",
+    "description": "Learn how to keep your personal information safe online! Take our fun quiz and become a privacy superhero!"
+  },
+  "homepage": {
+    "whatYouLearn": "What You'll Learn",
+    "learningDescription": "This quiz will teach you important skills to stay safe online",
+    "passwordSafety": {
+      "title": "Password Safety",
+      "description": "Learn how to create strong passwords and keep them secret"
+    },
+    "personalInfo": {
+      "title": "Personal Information",
+      "description": "Understand what information to keep private"
+    },
+    "safeWebsites": {
+      "title": "Safe Websites",
+      "description": "Recognize trustworthy websites and avoid dangerous ones"
+    },
+    "smartSharing": {
+      "title": "Smart Sharing",
+      "description": "Know when and how to share information safely"
+    },
+    "quizInfo": {
+      "questions": "12 Questions",
+      "time": "About 10-15 minutes",
+      "explanation": "Each question teaches you something new about staying safe online. You'll get helpful explanations for every answer!"
+    },
+    "startButton": "Start the Quiz!"
+  },
+  "footer": {
+    "madeBy": "Made with love by Kethan Vegunta, Ekansh Samanta, Ben Archbold"
+  },
+  "quiz": {
+    "questionNotFound": "Question not found",
+    "goBack": "Go back to start",
+    "nextQuestion": "Next Question",
+    "seeResults": "See Results"
+  },
+  "results": {
+    "quizComplete": "Quiz Complete!",
+    "yourScore": "Your Score",
+    "correct": "Correct",
+    "answered": "Answered",
+    "percentCorrect": "{percentage}% Correct",
+    "quizProgress": "Quiz Progress",
+    "questionsCompleted": "{completed} of {total} questions",
+    "statistics": {
+      "correct": "Correct",
+      "incorrect": "Incorrect",
+      "remaining": "Remaining"
+    },
+    "whatYouLearned": "What You Learned",
+    "keyLessons": {
+      "personalInfo": {
+        "title": "Personal Information",
+        "description": "Never share your real name, address, or phone number with strangers online"
+      },
+      "strongPasswords": {
+        "title": "Strong Passwords",
+        "description": "Use long passwords with letters, numbers, and symbols"
+      },
+      "suspiciousWebsites": {
+        "title": "Suspicious Websites",
+        "description": "Always ask an adult before entering payment information"
+      },
+      "onlineStrangers": {
+        "title": "Online Strangers",
+        "description": "Never meet people from the internet in real life"
+      }
+    },
+    "backToHome": "Back to Home",
+    "continueQuiz": "Continue Quiz ({remaining} left)",
+    "startOver": "Start Over",
+    "encouragement": {
+      "title": "🌟 Remember: You're a Privacy Protector! 🌟",
+      "description": "Share what you learned with your friends and family to help keep everyone safe online!"
+    }
+  },
+  "scoreMessages": {
+    "superhero": {
+      "emoji": "🏆",
+      "title": "Privacy Superhero!",
+      "message": "Amazing! You know how to stay super safe online!"
+    },
+    "pro": {
+      "emoji": "🌟",
+      "title": "Privacy Pro!",
+      "message": "Great job! You understand most online safety rules!"
+    },
+    "learning": {
+      "emoji": "📚",
+      "title": "Learning Well!",
+      "message": "Good work! Keep practicing to become even safer online!"
+    },
+    "keepLearning": {
+      "emoji": "💪",
+      "title": "Keep Learning!",
+      "message": "You're on the right track! Practice makes perfect!"
+    }
+  },
+  "language": {
+    "select": "Select language"
+  },
+  "theme": {
+    "toggle": "Toggle theme",
+    "light": "Light",
+    "dark": "Dark",
+    "system": "System"
+  }
+}

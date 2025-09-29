@@ -1,0 +1,112 @@
+{
+  "app": {
+    "title": "Cuestionario de Protección de Privacidad",
+    "description": "¡Aprende cómo mantener tu información personal segura en línea! ¡Realiza nuestro divertido cuestionario y conviértete en un superhéroe de la privacidad!"
+  },
+  "homepage": {
+    "whatYouLearn": "Lo que aprenderás",
+    "learningDescription": "Este cuestionario te enseñará habilidades importantes para mantenerte seguro en línea",
+    "passwordSafety": {
+      "title": "Seguridad de Contraseñas",
+      "description": "Aprende cómo crear contraseñas seguras y mantenerlas en secreto"
+    },
+    "personalInfo": {
+      "title": "Información Personal",
+      "description": "Comprende qué información mantener privada"
+    },
+    "safeWebsites": {
+      "title": "Sitios Web Seguros",
+      "description": "Reconoce sitios web confiables y evita los peligrosos"
+    },
+    "smartSharing": {
+      "title": "Compartir Inteligente",
+      "description": "Saber cuándo y cómo compartir información de forma segura"
+    },
+    "quizInfo": {
+      "questions": "12 Preguntas",
+      "time": "Aproximadamente 10-15 minutos",
+      "explanation": "¡Cada pregunta te enseña algo nuevo sobre cómo mantenerte seguro en línea. Obtendrás explicaciones útiles para cada respuesta!"
+    },
+    "startButton": "¡Comenzar el Cuestionario!"
+  },
+  "footer": {
+    "madeBy": "Hecho con amor por Kethan Vegunta, Ekansh Samanta, Ben Archbold"
+  },
+  "quiz": {
+    "questionNotFound": "Pregunta no encontrada",
+    "goBack": "Volver al inicio",
+    "nextQuestion": "Siguiente Pregunta",
+    "seeResults": "Ver Resultados"
+  },
+  "results": {
+    "quizComplete": "¡Cuestionario Completado!",
+    "yourScore": "Tu Puntuación",
+    "correct": "Correctas",
+    "answered": "Contestadas",
+    "percentCorrect": "{percentage}% Correcto",
+    "quizProgress": "Progreso del Cuestionario",
+    "questionsCompleted": "{completed} de {total} preguntas",
+    "statistics": {
+      "correct": "Correctas",
+      "incorrect": "Incorrectas",
+      "remaining": "Restantes"
+    },
+    "whatYouLearned": "Lo Que Aprendiste",
+    "keyLessons": {
+      "personalInfo": {
+        "title": "Información Personal",
+        "description": "Nunca compartas tu nombre real, dirección o número de teléfono con extraños en línea"
+      },
+      "strongPasswords": {
+        "title": "Contraseñas Seguras",
+        "description": "Usa contraseñas largas con letras, números y símbolos"
+      },
+      "suspiciousWebsites": {
+        "title": "Sitios Web Sospechosos",
+        "description": "Siempre pregunta a un adulto antes de ingresar información de pago"
+      },
+      "onlineStrangers": {
+        "title": "Extraños en Línea",
+        "description": "Nunca conozcas a personas de internet en la vida real"
+      }
+    },
+    "backToHome": "Volver al Inicio",
+    "continueQuiz": "Continuar Cuestionario ({remaining} restantes)",
+    "startOver": "Comenzar de Nuevo",
+    "encouragement": {
+      "title": "🌟 Recuerda: ¡Eres un Protector de la Privacidad! 🌟",
+      "description": "¡Comparte lo que aprendiste con tus amigos y familia para ayudar a mantener a todos seguros en línea!"
+    }
+  },
+  "scoreMessages": {
+    "superhero": {
+      "emoji": "🏆",
+      "title": "¡Superhéroe de la Privacidad!",
+      "message": "¡Increíble! ¡Sabes cómo mantenerte súper seguro en línea!"
+    },
+    "pro": {
+      "emoji": "🌟",
+      "title": "¡Profesional de la Privacidad!",
+      "message": "¡Buen trabajo! ¡Entiendes la mayoría de las reglas de seguridad en línea!"
+    },
+    "learning": {
+      "emoji": "📚",
+      "title": "¡Aprendiendo Bien!",
+      "message": "¡Buen trabajo! ¡Sigue practicando para estar aún más seguro en línea!"
+    },
+    "keepLearning": {
+      "emoji": "💪",
+      "title": "¡Sigue Aprendiendo!",
+      "message": "¡Vas por buen camino! ¡La práctica hace al maestro!"
+    }
+  },
+  "language": {
+    "select": "Seleccionar idioma"
+  },
+  "theme": {
+    "toggle": "Cambiar tema",
+    "light": "Claro",
+    "dark": "Oscuro",
+    "system": "Sistema"
+  }
+}

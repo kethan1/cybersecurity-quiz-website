@@ -1,26 +1,29 @@
-"use client"
+"use client";
 
-import * as React from "react"
-import { Moon, Sun } from "lucide-react"
-import { useTheme } from "next-themes"
+import * as React from "react";
+import { Moon, Sun } from "lucide-react";
+import { useTheme } from "next-themes";
+import { useTranslations } from "next-intl";
 
-import { Button } from "@/components/ui/button"
+import { Button } from "@/components/ui/button";
 
 export function ThemeToggle() {
-  const { theme, setTheme } = useTheme()
-  const [mounted, setMounted] = React.useState(false)
+  const { theme, setTheme } = useTheme();
+  const [mounted, setMounted] = React.useState(false);
+
+  const t = useTranslations();
 
   React.useEffect(() => {
-    setMounted(true)
-  }, [])
+    setMounted(true);
+  }, []);
 
   if (!mounted) {
     return (
       <Button variant="outline" size="sm" className="gap-2 bg-transparent">
         <Sun className="w-4 h-4" />
-        <span className="sr-only">Toggle theme</span>
+        <span className="sr-only">{t("theme.toggle")}</span>
       </Button>
-    )
+    );
   }
 
   return (
@@ -33,15 +36,15 @@ export function ThemeToggle() {
       {theme === "light" ? (
         <>
           <Moon className="w-4 h-4" />
-          <span className="hidden sm:inline">Dark</span>
+          <span className="hidden sm:inline">{t("theme.light")}</span>
         </>
       ) : (
         <>
           <Sun className="w-4 h-4" />
-          <span className="hidden sm:inline">Light</span>
+          <span className="hidden sm:inline">{t("theme.light")}</span>
         </>
       )}
-      <span className="sr-only">Toggle theme</span>
+      <span className="sr-only">{t("theme.toggle")}</span>
     </Button>
-  )
+  );
 }

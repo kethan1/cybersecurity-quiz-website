@@ -1,35 +1,37 @@
 export interface QuizOption {
-  id: string
-  text: string
-  isCorrect: boolean
-  explanation?: string
+  id: string;
+  text: string;
+  isCorrect: boolean;
+  explanation?: string;
 }
 
 export interface QuizQuestion {
-  id: number
-  question: string
-  description?: string
-  options: QuizOption[]
-  icon?: string
+  id: number;
+  question: string;
+  description?: string;
+  options: QuizOption[];
+  icon?: string;
   warningDemo?: {
-    title: string
-    description: string
-    consequence: string
-  }
+    title: string;
+    description: string;
+    consequence: string;
+  };
 }
 
 export const quizQuestions: QuizQuestion[] = [
   {
     id: 1,
     question: "What information should you NEVER share online with strangers?",
-    description: "Think about what information could help someone find you or pretend to be you.",
+    description:
+      "Think about what information could help someone find you or pretend to be you.",
     icon: "🔐",
     options: [
       {
         id: "a",
         text: "Your favorite color",
         isCorrect: false,
-        explanation: "Your favorite color is safe to share! It can't be used to find you or hurt you.",
+        explanation:
+          "Your favorite color is safe to share! It can't be used to find you or hurt you.",
       },
       {
         id: "b",
@@ -50,20 +52,24 @@ export const quizQuestions: QuizQuestion[] = [
       title: "Danger: Sharing Personal Information",
       description:
         "When you share your real name, address, or phone number online, strangers can use this information to find you in real life.",
-      consequence: "Someone could show up at your house, call your family, or even steal your identity!",
+      consequence:
+        "Someone could show up at your house, call your family, or even steal your identity!",
     },
   },
   {
     id: 2,
-    question: "You want to create a password for your new game account. Which password is the strongest?",
-    description: "A strong password protects your account from hackers who try to guess it.",
+    question:
+      "You want to create a password for your new game account. Which password is the strongest?",
+    description:
+      "A strong password protects your account from hackers who try to guess it.",
     icon: "🔑",
     options: [
       {
         id: "a",
         text: "password123",
         isCorrect: false,
-        explanation: "This is too easy to guess! Hackers try common passwords like this first.",
+        explanation:
+          "This is too easy to guess! Hackers try common passwords like this first.",
       },
       {
         id: "b",
@@ -82,14 +88,18 @@ export const quizQuestions: QuizQuestion[] = [
     ],
     warningDemo: {
       title: "Weak Password Danger",
-      description: "Weak passwords can be guessed by hackers in seconds using special computer programs.",
-      consequence: "Someone could steal your account, delete your progress, or use your account to bully others!",
+      description:
+        "Weak passwords can be guessed by hackers in seconds using special computer programs.",
+      consequence:
+        "Someone could steal your account, delete your progress, or use your account to bully others!",
     },
   },
   {
     id: 3,
-    question: "A website asks for your parent's credit card information to get 'free' games. What should you do?",
-    description: "Sometimes websites that seem free actually want to trick you into spending money.",
+    question:
+      "A website asks for your parent's credit card information to get 'free' games. What should you do?",
+    description:
+      "Sometimes websites that seem free actually want to trick you into spending money.",
     icon: "💳",
     options: [
       {
@@ -110,21 +120,24 @@ export const quizQuestions: QuizQuestion[] = [
         id: "c",
         text: "Make up fake credit card numbers",
         isCorrect: false,
-        explanation: "Making up information is dishonest, and many websites can detect fake numbers anyway.",
+        explanation:
+          "Making up information is dishonest, and many websites can detect fake numbers anyway.",
       },
     ],
     warningDemo: {
       title: "Credit Card Scam Alert",
       description:
         "Many 'free' websites are actually scams that will charge your parents' credit card or steal the information.",
-      consequence: "Your family could lose money, or criminals could use the stolen card information to buy things!",
+      consequence:
+        "Your family could lose money, or criminals could use the stolen card information to buy things!",
     },
   },
   {
     id: 4,
     question:
       "You receive a message from someone claiming to be your friend, but something seems different about how they're writing. What should you do?",
-    description: "Sometimes hackers take over accounts and pretend to be people you know.",
+    description:
+      "Sometimes hackers take over accounts and pretend to be people you know.",
     icon: "👥",
     options: [
       {
@@ -159,8 +172,10 @@ export const quizQuestions: QuizQuestion[] = [
   },
   {
     id: 5,
-    question: "You see a pop-up that says 'You've won $1000! Click here to claim your prize!' What should you do?",
-    description: "Pop-ups like this are often tricks to get you to click on dangerous links.",
+    question:
+      "You see a pop-up that says 'You've won $1000! Click here to claim your prize!' What should you do?",
+    description:
+      "Pop-ups like this are often tricks to get you to click on dangerous links.",
     icon: "🚨",
     options: [
       {
@@ -181,14 +196,16 @@ export const quizQuestions: QuizQuestion[] = [
         id: "c",
         text: "Share the link with your friends so they can win too",
         isCorrect: false,
-        explanation: "This would spread the dangerous link to your friends! Never share suspicious pop-ups or links.",
+        explanation:
+          "This would spread the dangerous link to your friends! Never share suspicious pop-ups or links.",
       },
     ],
     warningDemo: {
       title: "Fake Prize Scam",
       description:
         "These pop-ups are designed to trick you into clicking malicious links or downloading harmful software.",
-      consequence: "Your computer could get infected with viruses, or scammers could steal your family's information!",
+      consequence:
+        "Your computer could get infected with viruses, or scammers could steal your family's information!",
     },
   },
   {
@@ -201,31 +218,38 @@ export const quizQuestions: QuizQuestion[] = [
         id: "a",
         text: "Download from a random website that offers it for free",
         isCorrect: false,
-        explanation: "This is very risky! Unknown websites often have fake games with viruses hidden inside.",
+        explanation:
+          "This is very risky! Unknown websites often have fake games with viruses hidden inside.",
       },
       {
         id: "b",
         text: "Use official app stores like Google Play or Apple App Store",
         isCorrect: true,
-        explanation: "Excellent choice! Official app stores check games for safety before allowing downloads.",
+        explanation:
+          "Excellent choice! Official app stores check games for safety before allowing downloads.",
       },
       {
         id: "c",
         text: "Click on a link someone sent you in a message",
         isCorrect: false,
-        explanation: "This could be dangerous! Even friends can accidentally share harmful links without knowing it.",
+        explanation:
+          "This could be dangerous! Even friends can accidentally share harmful links without knowing it.",
       },
     ],
     warningDemo: {
       title: "Malicious Download Warning",
-      description: "Downloading games from unsafe websites can install viruses or malware on your device.",
-      consequence: "Your device could be damaged, your personal files stolen, or your accounts hacked!",
+      description:
+        "Downloading games from unsafe websites can install viruses or malware on your device.",
+      consequence:
+        "Your device could be damaged, your personal files stolen, or your accounts hacked!",
     },
   },
   {
     id: 7,
-    question: "Someone online offers to meet you in person after chatting for a few days. What's the safest response?",
-    description: "Meeting strangers from the internet can be very dangerous, even if they seem nice online.",
+    question:
+      "Someone online offers to meet you in person after chatting for a few days. What's the safest response?",
+    description:
+      "Meeting strangers from the internet can be very dangerous, even if they seem nice online.",
     icon: "🚫",
     options: [
       {
@@ -252,14 +276,18 @@ export const quizQuestions: QuizQuestion[] = [
     ],
     warningDemo: {
       title: "Stranger Danger Online",
-      description: "People online can pretend to be someone they're not. They might be adults pretending to be kids.",
-      consequence: "Meeting strangers from the internet could put you in serious physical danger!",
+      description:
+        "People online can pretend to be someone they're not. They might be adults pretending to be kids.",
+      consequence:
+        "Meeting strangers from the internet could put you in serious physical danger!",
     },
   },
   {
     id: 8,
-    question: "You want to post a photo of your new school uniform. What should you be careful about?",
-    description: "Photos can reveal more information than you think, even when you're trying to be careful.",
+    question:
+      "You want to post a photo of your new school uniform. What should you be careful about?",
+    description:
+      "Photos can reveal more information than you think, even when you're trying to be careful.",
     icon: "📸",
     options: [
       {
@@ -273,33 +301,39 @@ export const quizQuestions: QuizQuestion[] = [
         id: "b",
         text: "Post it immediately - it's just a uniform",
         isCorrect: false,
-        explanation: "School uniforms can reveal which school you attend, making it easier for strangers to find you.",
+        explanation:
+          "School uniforms can reveal which school you attend, making it easier for strangers to find you.",
       },
       {
         id: "c",
         text: "Include your full name in the caption so friends know it's you",
         isCorrect: false,
-        explanation: "Adding your full name makes it even easier for strangers to identify and locate you!",
+        explanation:
+          "Adding your full name makes it even easier for strangers to identify and locate you!",
       },
     ],
     warningDemo: {
       title: "Location Information Risk",
-      description: "Photos with school information can help strangers figure out where you spend your time every day.",
-      consequence: "Someone could use this information to find you at school or follow you home!",
+      description:
+        "Photos with school information can help strangers figure out where you spend your time every day.",
+      consequence:
+        "Someone could use this information to find you at school or follow you home!",
     },
   },
   {
     id: 9,
     question:
       "You receive an email saying your favorite game account will be deleted unless you reply with your password. What should you do?",
-    description: "Scammers often pretend to be from companies you trust to steal your login information.",
+    description:
+      "Scammers often pretend to be from companies you trust to steal your login information.",
     icon: "📧",
     options: [
       {
         id: "a",
         text: "Reply immediately with your password to save your account",
         isCorrect: false,
-        explanation: "This is a phishing scam! Real companies never ask for your password in emails.",
+        explanation:
+          "This is a phishing scam! Real companies never ask for your password in emails.",
       },
       {
         id: "b",
@@ -312,7 +346,8 @@ export const quizQuestions: QuizQuestion[] = [
         id: "c",
         text: "Forward the email to all your friends to warn them",
         isCorrect: false,
-        explanation: "Don't forward suspicious emails! This could spread the scam to your friends. Just delete it.",
+        explanation:
+          "Don't forward suspicious emails! This could spread the scam to your friends. Just delete it.",
       },
     ],
     warningDemo: {
@@ -325,8 +360,10 @@ export const quizQuestions: QuizQuestion[] = [
   },
   {
     id: 10,
-    question: "Which of these is the best way to keep your online accounts secure?",
-    description: "There are several ways to make your accounts harder for hackers to break into.",
+    question:
+      "Which of these is the best way to keep your online accounts secure?",
+    description:
+      "There are several ways to make your accounts harder for hackers to break into.",
     icon: "🔒",
     options: [
       {
@@ -355,14 +392,16 @@ export const quizQuestions: QuizQuestion[] = [
       title: "Account Security Weakness",
       description:
         "Poor password practices make it easy for hackers to access multiple accounts once they crack one password.",
-      consequence: "Hackers could access your email, social media, games, and even your family's accounts!",
+      consequence:
+        "Hackers could access your email, social media, games, and even your family's accounts!",
     },
   },
   {
     id: 11,
     question:
       "You're playing an online game and another player asks for your home address to send you a gift. How do you respond?",
-    description: "Even in games, you need to be careful about sharing personal information with other players.",
+    description:
+      "Even in games, you need to be careful about sharing personal information with other players.",
     icon: "🎮",
     options: [
       {
@@ -397,8 +436,10 @@ export const quizQuestions: QuizQuestion[] = [
   },
   {
     id: 12,
-    question: "Before sharing a funny photo or video online, what's the most important thing to consider?",
-    description: "Once something is posted online, it can be very hard to completely remove it.",
+    question:
+      "Before sharing a funny photo or video online, what's the most important thing to consider?",
+    description:
+      "Once something is posted online, it can be very hard to completely remove it.",
     icon: "🤳",
     options: [
       {
@@ -431,26 +472,26 @@ export const quizQuestions: QuizQuestion[] = [
         "Embarrassing posts could affect your reputation, college applications, or job opportunities years from now!",
     },
   },
-]
+];
 
 export function getQuestionById(id: number): QuizQuestion | undefined {
-  return quizQuestions.find((q) => q.id === id)
+  return quizQuestions.find((q) => q.id === id);
 }
 
 export function getNextQuestionId(currentId: number): number | null {
-  const currentIndex = quizQuestions.findIndex((q) => q.id === currentId)
+  const currentIndex = quizQuestions.findIndex((q) => q.id === currentId);
   if (currentIndex === -1 || currentIndex === quizQuestions.length - 1) {
-    return null
+    return null;
   }
-  return quizQuestions[currentIndex + 1].id
+  return quizQuestions[currentIndex + 1].id;
 }
 
 export function getPreviousQuestionId(currentId: number): number | null {
-  const currentIndex = quizQuestions.findIndex((q) => q.id === currentId)
+  const currentIndex = quizQuestions.findIndex((q) => q.id === currentId);
   if (currentIndex <= 0) {
-    return null
+    return null;
   }
-  return quizQuestions[currentIndex - 1].id
+  return quizQuestions[currentIndex - 1].id;
 }
 
-export const TOTAL_QUESTIONS = quizQuestions.length
+export const TOTAL_QUESTIONS = quizQuestions.length;

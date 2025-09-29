@@ -1,0 +1,112 @@
+{
+  "app": {
+    "title": "Quiz Protecteur de Vie Privée",
+    "description": "Apprends à garder tes informations personnelles en sécurité en ligne! Fais notre quiz amusant et deviens un super-héros de la confidentialité!"
+  },
+  "homepage": {
+    "whatYouLearn": "Ce que tu vas apprendre",
+    "learningDescription": "Ce quiz t'enseignera des compétences importantes pour rester en sécurité en ligne",
+    "passwordSafety": {
+      "title": "Sécurité des mots de passe",
+      "description": "Apprends à créer des mots de passe forts et à les garder secrets"
+    },
+    "personalInfo": {
+      "title": "Informations personnelles",
+      "description": "Comprendre quelles informations garder privées"
+    },
+    "safeWebsites": {
+      "title": "Sites Web sûrs",
+      "description": "Reconnaître les sites web fiables et éviter les dangereux"
+    },
+    "smartSharing": {
+      "title": "Partage intelligent",
+      "description": "Savoir quand et comment partager des informations en toute sécurité"
+    },
+    "quizInfo": {
+      "questions": "12 Questions",
+      "time": "Environ 10-15 minutes",
+      "explanation": "Chaque question t'apprend quelque chose de nouveau sur la façon de rester en sécurité en ligne. Tu obtiendras des explications utiles pour chaque réponse!"
+    },
+    "startButton": "Commencer le Quiz!"
+  },
+  "footer": {
+    "madeBy": "Fait avec amour par Kethan Vegunta, Ekansh Samanta, Ben Archbold"
+  },
+  "quiz": {
+    "questionNotFound": "Question non trouvée",
+    "goBack": "Retourner au début",
+    "nextQuestion": "Question suivante",
+    "seeResults": "Voir les résultats"
+  },
+  "results": {
+    "quizComplete": "Quiz terminé!",
+    "yourScore": "Ton score",
+    "correct": "Correct",
+    "answered": "Répondu",
+    "percentCorrect": "{percentage}% Correct",
+    "quizProgress": "Progression du quiz",
+    "questionsCompleted": "{completed} sur {total} questions",
+    "statistics": {
+      "correct": "Correctes",
+      "incorrect": "Incorrectes",
+      "remaining": "Restantes"
+    },
+    "whatYouLearned": "Ce que tu as appris",
+    "keyLessons": {
+      "personalInfo": {
+        "title": "Informations personnelles",
+        "description": "Ne jamais partager ton vrai nom, adresse ou numéro de téléphone avec des étrangers en ligne"
+      },
+      "strongPasswords": {
+        "title": "Mots de passe forts",
+        "description": "Utiliser des mots de passe longs avec des lettres, des chiffres et des symboles"
+      },
+      "suspiciousWebsites": {
+        "title": "Sites Web suspects",
+        "description": "Toujours demander à un adulte avant d'entrer des informations de paiement"
+      },
+      "onlineStrangers": {
+        "title": "Étrangers en ligne",
+        "description": "Ne jamais rencontrer des personnes d'internet dans la vie réelle"
+      }
+    },
+    "backToHome": "Retour à l'accueil",
+    "continueQuiz": "Continuer le quiz ({remaining} restantes)",
+    "startOver": "Recommencer",
+    "encouragement": {
+      "title": "🌟 Souviens-toi: Tu es un protecteur de la vie privée! 🌟",
+      "description": "Partage ce que tu as appris avec tes amis et ta famille pour aider à garder tout le monde en sécurité en ligne!"
+    }
+  },
+  "scoreMessages": {
+    "superhero": {
+      "emoji": "🏆",
+      "title": "Super-héros de la vie privée!",
+      "message": "Incroyable! Tu sais comment rester super en sécurité en ligne!"
+    },
+    "pro": {
+      "emoji": "🌟",
+      "title": "Pro de la vie privée!",
+      "message": "Bon travail! Tu comprends la plupart des règles de sécurité en ligne!"
+    },
+    "learning": {
+      "emoji": "📚",
+      "title": "Tu apprends bien!",
+      "message": "Bon travail! Continue à pratiquer pour devenir encore plus en sécurité en ligne!"
+    },
+    "keepLearning": {
+      "emoji": "💪",
+      "title": "Continue d'apprendre!",
+      "message": "Tu es sur la bonne voie! La pratique fait le maître!"
+    }
+  },
+  "language": {
+    "select": "Sélectionner la langue"
+  },
+  "theme": {
+    "toggle": "Changer le thème",
+    "light": "Clair",
+    "dark": "Sombre",
+    "system": "Système"
+  }
+}
