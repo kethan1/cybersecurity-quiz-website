@@ -27,14 +27,12 @@ export function LocaleSwitcher() {
         <SelectValue />
       </SelectTrigger>
       <SelectContent>
-        {
-          locales.map(locale => (
-            <SelectItem key={locale} value={locale}>
-              <span className="mr-2">{localeFlags[locale]}</span>
-              {localeNames[locale]}
-            </SelectItem>
-          ))
-        }
+        {locales.map((locale) => (
+          <SelectItem key={locale} value={locale}>
+            <span className="mr-2">{localeFlags[locale]}</span>
+            {localeNames[locale]}
+          </SelectItem>
+        ))}
       </SelectContent>
     </Select>
   );

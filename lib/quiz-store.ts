@@ -13,11 +13,7 @@ interface QuizAnswer {
 interface QuizState {
   answers: QuizAnswer[];
   currentStreak: number;
-  addAnswer: (
-    questionId: number,
-    selectedOptionId: string,
-    isCorrect: boolean
-  ) => void;
+  addAnswer: (questionId: number, selectedOptionId: string, isCorrect: boolean) => void;
   getScore: () => number;
   getAnswerForQuestion: (questionId: number) => QuizAnswer | undefined;
   resetQuiz: () => void;
@@ -32,12 +28,8 @@ export const useQuizStore = create<QuizState>()(
 
       addAnswer: (questionId, selectedOptionId, isCorrect) => {
         set((state) => {
-          // Remove any existing answer for this question
-          const filteredAnswers = state.answers.filter(
-            (a) => a.questionId !== questionId
-          );
+          const filteredAnswers = state.answers.filter((a) => a.questionId !== questionId);
 
-          // Add the new answer
           const newAnswer: QuizAnswer = {
             questionId,
             selectedOptionId,
@@ -73,6 +65,6 @@ export const useQuizStore = create<QuizState>()(
     }),
     {
       name: "privacy-quiz-storage",
-    }
-  )
+    },
+  ),
 );

@@ -1,67 +1,67 @@
-"use client"
+"use client";
 
-import { useState, useEffect } from "react"
-import Link from "next/link"
-import { useParams } from "next/navigation"
-import { useTranslations } from "next-intl"
-import { Button } from "@/components/ui/button"
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
-import { Badge } from "@/components/ui/badge"
-import { Progress } from "@/components/ui/progress"
-import { TOTAL_QUESTIONS } from "@/lib/quiz-data"
-import { useQuizStore } from "@/lib/quiz-store"
+import { useState, useEffect } from "react";
+import Link from "next/link";
+import { useParams } from "next/navigation";
+import { useTranslations } from "next-intl";
+import { Button } from "@/components/ui/button";
+import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
+import { Badge } from "@/components/ui/badge";
+import { Progress } from "@/components/ui/progress";
+import { TOTAL_QUESTIONS } from "@/lib/quiz-data";
+import { useQuizStore } from "@/lib/quiz-store";
 
 export default function ResultsPage() {
-  const t = useTranslations()
-  const params = useParams()
-  const locale = params.locale as string
-  const [showCelebration, setShowCelebration] = useState(false)
-  const { getScore, getTotalAnswered, answers, resetQuiz } = useQuizStore()
+  const t = useTranslations();
+  const params = useParams();
+  const locale = params.locale as string;
+  const [showCelebration, setShowCelebration] = useState(false);
+  const { getScore, getTotalAnswered, answers, resetQuiz } = useQuizStore();
 
-  const score = getScore()
-  const totalAnswered = getTotalAnswered()
-  const percentage = totalAnswered > 0 ? Math.round((score / totalAnswered) * 100) : 0
+  const score = getScore();
+  const totalAnswered = getTotalAnswered();
+  const percentage = totalAnswered > 0 ? Math.round((score / totalAnswered) * 100) : 0;
 
   useEffect(() => {
     // Show celebration animation
-    setTimeout(() => setShowCelebration(true), 500)
-  }, [])
+    setTimeout(() => setShowCelebration(true), 500);
+  }, []);
 
   const getScoreMessage = () => {
     if (percentage >= 90)
       return {
         emoji: t("scoreMessages.superhero.emoji"),
         title: t("scoreMessages.superhero.title"),
-        message: t("scoreMessages.superhero.message")
-      }
+        message: t("scoreMessages.superhero.message"),
+      };
     if (percentage >= 70)
       return {
         emoji: t("scoreMessages.pro.emoji"),
         title: t("scoreMessages.pro.title"),
-        message: t("scoreMessages.pro.message")
-      }
+        message: t("scoreMessages.pro.message"),
+      };
     if (percentage >= 50)
       return {
         emoji: t("scoreMessages.learning.emoji"),
         title: t("scoreMessages.learning.title"),
-        message: t("scoreMessages.learning.message")
-      }
+        message: t("scoreMessages.learning.message"),
+      };
     return {
       emoji: t("scoreMessages.keepLearning.emoji"),
       title: t("scoreMessages.keepLearning.title"),
-      message: t("scoreMessages.keepLearning.message")
-    }
-  }
+      message: t("scoreMessages.keepLearning.message"),
+    };
+  };
 
-  const scoreMessage = getScoreMessage()
+  const scoreMessage = getScoreMessage();
 
-  const correctAnswers = answers.filter((a) => a.isCorrect)
-  const incorrectAnswers = answers.filter((a) => !a.isCorrect)
-  const unansweredQuestions = TOTAL_QUESTIONS - totalAnswered
+  const correctAnswers = answers.filter((a) => a.isCorrect);
+  const incorrectAnswers = answers.filter((a) => !a.isCorrect);
+  const unansweredQuestions = TOTAL_QUESTIONS - totalAnswered;
 
   const handleResetQuiz = () => {
-    resetQuiz()
-  }
+    resetQuiz();
+  };
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-background via-card to-secondary">
@@ -73,7 +73,9 @@ export default function ResultsPage() {
             <h1 className="text-4xl md:text-6xl font-bold text-primary mb-4 text-balance">
               {t("results.quizComplete")}
             </h1>
-            <p className="text-xl md:text-2xl text-muted-foreground text-pretty">{scoreMessage.title}</p>
+            <p className="text-xl md:text-2xl text-muted-foreground text-pretty">
+              {scoreMessage.title}
+            </p>
           </div>
 
           {/* Score Card */}
@@ -90,7 +92,9 @@ export default function ResultsPage() {
                 </div>
                 <div className="text-4xl text-muted-foreground">/</div>
                 <div className="text-center">
-                  <div className="text-5xl font-bold text-muted-foreground mb-2">{totalAnswered}</div>
+                  <div className="text-5xl font-bold text-muted-foreground mb-2">
+                    {totalAnswered}
+                  </div>
                   <p className="text-muted-foreground">{t("results.answered")}</p>
                 </div>
               </div>
@@ -104,7 +108,10 @@ export default function ResultsPage() {
                   <div className="flex justify-between text-sm">
                     <span>{t("results.quizProgress")}</span>
                     <span>
-                      {t("results.questionsCompleted", { completed: totalAnswered, total: TOTAL_QUESTIONS })}
+                      {t("results.questionsCompleted", {
+                        completed: totalAnswered,
+                        total: TOTAL_QUESTIONS,
+                      })}
                     </span>
                   </div>
                   <Progress value={(totalAnswered / TOTAL_QUESTIONS) * 100} className="h-3" />
@@ -142,7 +149,9 @@ export default function ResultsPage() {
                 <div className="flex items-start gap-3">
                   <span className="text-2xl">✅</span>
                   <div>
-                    <h3 className="font-semibold mb-1">{t("results.keyLessons.personalInfo.title")}</h3>
+                    <h3 className="font-semibold mb-1">
+                      {t("results.keyLessons.personalInfo.title")}
+                    </h3>
                     <p className="text-sm text-muted-foreground">
                       {t("results.keyLessons.personalInfo.description")}
                     </p>
@@ -151,7 +160,9 @@ export default function ResultsPage() {
                 <div className="flex items-start gap-3">
                   <span className="text-2xl">✅</span>
                   <div>
-                    <h3 className="font-semibold mb-1">{t("results.keyLessons.strongPasswords.title")}</h3>
+                    <h3 className="font-semibold mb-1">
+                      {t("results.keyLessons.strongPasswords.title")}
+                    </h3>
                     <p className="text-sm text-muted-foreground">
                       {t("results.keyLessons.strongPasswords.description")}
                     </p>
@@ -160,7 +171,9 @@ export default function ResultsPage() {
                 <div className="flex items-start gap-3">
                   <span className="text-2xl">✅</span>
                   <div>
-                    <h3 className="font-semibold mb-1">{t("results.keyLessons.suspiciousWebsites.title")}</h3>
+                    <h3 className="font-semibold mb-1">
+                      {t("results.keyLessons.suspiciousWebsites.title")}
+                    </h3>
                     <p className="text-sm text-muted-foreground">
                       {t("results.keyLessons.suspiciousWebsites.description")}
                     </p>
@@ -169,7 +182,9 @@ export default function ResultsPage() {
                 <div className="flex items-start gap-3">
                   <span className="text-2xl">✅</span>
                   <div>
-                    <h3 className="font-semibold mb-1">{t("results.keyLessons.onlineStrangers.title")}</h3>
+                    <h3 className="font-semibold mb-1">
+                      {t("results.keyLessons.onlineStrangers.title")}
+                    </h3>
                     <p className="text-sm text-muted-foreground">
                       {t("results.keyLessons.onlineStrangers.description")}
                     </p>
@@ -208,10 +223,10 @@ export default function ResultsPage() {
 
           {/* Encouragement */}
           <div className="mt-12 p-6 bg-primary/10 rounded-lg border border-primary/20">
-            <h3 className="text-xl font-semibold text-primary mb-2">{t("results.encouragement.title")}</h3>
-            <p className="text-muted-foreground">
-              {t("results.encouragement.description")}
-            </p>
+            <h3 className="text-xl font-semibold text-primary mb-2">
+              {t("results.encouragement.title")}
+            </h3>
+            <p className="text-muted-foreground">{t("results.encouragement.description")}</p>
           </div>
         </div>
       </div>

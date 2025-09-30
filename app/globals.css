@@ -116,7 +116,9 @@
   --color-sidebar-ring: var(--sidebar-ring);
 }
 
-h1, h2 {
+h1,
+h2,
+.text-primary {
   @apply font-heading;
 }
 

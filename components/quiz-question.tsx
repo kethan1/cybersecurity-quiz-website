@@ -2,13 +2,7 @@
 
 import { useState, useEffect } from "react";
 import { Button } from "@/components/ui/button";
-import {
-  Card,
-  CardContent,
-  CardDescription,
-  CardHeader,
-  CardTitle,
-} from "@/components/ui/card";
+import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { CheckCircle, XCircle, AlertTriangle } from "lucide-react";
 
 interface QuizOption {
@@ -49,7 +43,7 @@ export function QuizQuestion({
   existingAnswer,
 }: QuizQuestionProps) {
   const [selectedOption, setSelectedOption] = useState<string | null>(
-    existingAnswer?.selectedOptionId || null
+    existingAnswer?.selectedOptionId || null,
   );
   const [showResult, setShowResult] = useState(!!existingAnswer);
   const [showWarning, setShowWarning] = useState(false);
@@ -83,31 +77,22 @@ export function QuizQuestion({
       <Card className="border-2 border-primary/20">
         <CardHeader className="text-center">
           <div className="text-4xl mb-2 animate-bounce-gentle">{icon}</div>
-          <CardTitle className="text-2xl md:text-3xl text-balance">
-            {question}
-          </CardTitle>
+          <CardTitle className="text-2xl md:text-3xl text-balance">{question}</CardTitle>
           {description && (
-            <CardDescription className="text-lg text-pretty">
-              {description}
-            </CardDescription>
+            <CardDescription className="text-lg text-pretty">{description}</CardDescription>
           )}
         </CardHeader>
         <CardContent>
           <div className="grid gap-4">
             {options.map((option) => {
-              let buttonVariant:
-                | "default"
-                | "outline"
-                | "destructive"
-                | "secondary" = "outline";
+              let buttonVariant: "default" | "outline" | "destructive" | "secondary" = "outline";
               let buttonClass = "h-auto p-4 text-left justify-start";
               let icon = null;
 
               if (showResult && selectedOption === option.id) {
                 if (option.isCorrect) {
                   buttonVariant = "default";
-                  buttonClass +=
-                    " bg-primary text-primary-foreground animate-celebrate";
+                  buttonClass += " bg-primary text-primary-foreground animate-celebrate";
                   icon = <CheckCircle className="w-5 h-5 text-green-500" />;
                 } else {
                   buttonVariant = "destructive";
@@ -157,9 +142,7 @@ export function QuizQuestion({
               )}
               <div>
                 <h3 className="font-semibold text-lg mb-2">
-                  {selectedAnswer.isCorrect
-                    ? "Great job!"
-                    : "Not quite right, but that's okay!"}
+                  {selectedAnswer.isCorrect ? "Great job!" : "Not quite right, but that's okay!"}
                 </h3>
                 <p className="text-muted-foreground">
                   {selectedAnswer.explanation ||

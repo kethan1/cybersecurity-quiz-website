@@ -1,22 +1,72 @@
-import Link from "next/link";
+"use client";
+
+import { useState } from "react";
 import { useTranslations } from "next-intl";
-import { Button } from "@/components/ui/button";
+
+import { useRouter } from "@/i18n/navigation";
+
+import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import {
-  Card,
-  CardContent,
-  CardDescription,
-  CardHeader,
-  CardTitle,
-} from "@/components/ui/card";
+  AlertDialog,
+  AlertDialogAction,
+  AlertDialogCancel,
+  AlertDialogContent,
+  AlertDialogDescription,
+  AlertDialogFooter,
+  AlertDialogHeader,
+  AlertDialogTitle,
+} from "@/components/ui/alert-dialog";
+import { Footer } from "@/components/footer";
+import { Button } from "@/components/ui/button";
 import { ThemeToggle } from "@/components/theme-toggle";
 import { LocaleSwitcher } from "@/components/locale-switcher";
-import { Footer } from "@/components/footer";
+
+import { useQuizStore } from "@/lib/quiz-store";
 
 export default function HomePage() {
   const t = useTranslations();
+  const router = useRouter();
+  const [isOpen, setIsOpen] = useState(false);
+
+  const { getTotalAnswered, resetQuiz } = useQuizStore();
+
+  const startQuiz = () => {
+    if (getTotalAnswered() > 0) {
+      setIsOpen(true);
+    } else {
+      router.push("/quiz/1");
+    }
+  };
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-background via-card to-secondary">
+      <AlertDialog open={isOpen} onOpenChange={setIsOpen}>
+        <AlertDialogContent>
+          <AlertDialogHeader>
+            <AlertDialogTitle>{t("homepage.start.title")}</AlertDialogTitle>
+            <AlertDialogDescription>{t("homepage.start.description")}</AlertDialogDescription>
+          </AlertDialogHeader>
+          <AlertDialogFooter>
+            <AlertDialogCancel
+              onClick={() => {
+                const nextId = getTotalAnswered() + 1;
+                router.push(`/quiz/${nextId}`);
+              }}
+            >
+              {t("homepage.start.continue")}
+            </AlertDialogCancel>
+            <AlertDialogAction
+              onClick={() => {
+                resetQuiz();
+                router.push("/quiz/1");
+              }}
+            >
+              {t("homepage.start.restart")}
+            </AlertDialogAction>
+          </AlertDialogFooter>
+        </AlertDialogContent>
+      </AlertDialog>
+
       <div className="container mx-auto px-4 py-8">
         <div className="flex justify-end mb-4 gap-2">
           <LocaleSwitcher />
@@ -101,12 +151,8 @@ export default function HomePage() {
             <CardContent>
               <div className="flex items-center justify-center gap-4 mb-4">
                 <div className="text-center">
-                  <h3 className="text-xl font-semibold">
-                    {t("homepage.quizInfo.questions")}
-                  </h3>
-                  <p className="text-muted-foreground">
-                    {t("homepage.quizInfo.time")}
-                  </p>
+                  <h3 className="text-xl font-semibold">{t("homepage.quizInfo.questions")}</h3>
+                  <p className="text-muted-foreground">{t("homepage.quizInfo.time")}</p>
                 </div>
               </div>
               <p className="text-center text-muted-foreground">
@@ -117,16 +163,13 @@ export default function HomePage() {
 
           {/* Start Button */}
           <div className="text-center">
-            <Link href="/quiz/1">
-              <Button
-                size="lg"
-                className="text-xl px-8 py-6 animate-bounce-gentle hover:animate-celebrate"
-              >
-                <span className="mr-2">🚀</span>
-                {t("homepage.startButton")}
-                <span className="ml-2">🚀</span>
-              </Button>
-            </Link>
+            <Button
+              size="lg"
+              className="text-xl px-8 py-6 animate-bounce-gentle hover:animate-celebrate"
+              onClick={startQuiz}
+            >
+              {t("homepage.startButton")}
+            </Button>
           </div>
         </div>
 

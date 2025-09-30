@@ -1,4 +1,4 @@
-import enQuiz from "@/messages/en.json";
+import enQuiz from "@/messages/messages.en";
 
 export interface QuizOption {
   id: string;
@@ -21,7 +21,9 @@ export interface QuizQuestion {
 }
 
 // Access the canonical question ids from the message file
-const questionIds = Object.keys((enQuiz as any).quiz.questions).map((k) => Number(k)).sort((a,b)=>a-b);
+const questionIds = Object.keys((enQuiz as any).quiz.questions)
+  .map((k) => Number(k))
+  .sort((a, b) => a - b);
 
 export const TOTAL_QUESTIONS = questionIds.length;
 
@@ -42,7 +44,10 @@ export function getPrevQuestionId(currentId: number): number | null {
  * Text fields are read from the active locale messages, while non-linguistic data
  * (icons, correctness) is sourced from the canonical English quiz data.
  */
-export function getLocalizedQuestion(t: (key: string) => string, id: number): QuizQuestion | undefined {
+export function getLocalizedQuestion(
+  t: (key: string) => string,
+  id: number,
+): QuizQuestion | undefined {
   const base = (enQuiz as any).quiz.questions[String(id)];
   if (!base) return undefined;
 

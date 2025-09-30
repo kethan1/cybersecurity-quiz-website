@@ -1,45 +1,45 @@
-"use client"
+"use client";
 
-import { useState, useEffect, use } from "react"
-import { useRouter } from "next/navigation"
-import { useTranslations } from "next-intl"
-import { QuizLayout } from "@/components/quiz-layout"
-import { QuizQuestion } from "@/components/quiz-question"
-import { Button } from "@/components/ui/button"
-import { getLocalizedQuestion, getNextQuestionId, TOTAL_QUESTIONS } from "@/lib/quiz-data"
-import { useQuizStore } from "@/lib/quiz-store"
+import { useState, useEffect, use } from "react";
+import { useRouter } from "next/navigation";
+import { useTranslations } from "next-intl";
+import { QuizLayout } from "@/components/quiz-layout";
+import { QuizQuestion } from "@/components/quiz-question";
+import { Button } from "@/components/ui/button";
+import { getLocalizedQuestion, getNextQuestionId, TOTAL_QUESTIONS } from "@/lib/quiz-data";
+import { useQuizStore } from "@/lib/quiz-store";
 
 interface QuizPageProps {
   params: Promise<{
-    id: string
-    locale: string
-  }>
+    id: string;
+    locale: string;
+  }>;
 }
 
 export default function QuizPage({ params }: QuizPageProps) {
-  const { id, locale } = use(params)
+  const { id, locale } = use(params);
 
-  const t = useTranslations()
-  const router = useRouter()
-  const questionId = Number.parseInt(id)
-  const [answered, setAnswered] = useState(false)
-  const [isCorrect, setIsCorrect] = useState(false)
+  const t = useTranslations();
+  const router = useRouter();
+  const questionId = Number.parseInt(id);
+  const [answered, setAnswered] = useState(false);
+  const [isCorrect, setIsCorrect] = useState(false);
 
-  const { addAnswer, getAnswerForQuestion } = useQuizStore()
+  const { addAnswer, getAnswerForQuestion } = useQuizStore();
 
-  const question = getLocalizedQuestion(t as any, questionId)
-  const nextQuestionId = getNextQuestionId(questionId)
-  const existingAnswer = getAnswerForQuestion(questionId)
+  const question = getLocalizedQuestion(t as any, questionId);
+  const nextQuestionId = getNextQuestionId(questionId);
+  const existingAnswer = getAnswerForQuestion(questionId);
 
   useEffect(() => {
     if (existingAnswer) {
-      setAnswered(true)
-      setIsCorrect(existingAnswer.isCorrect)
+      setAnswered(true);
+      setIsCorrect(existingAnswer.isCorrect);
     } else {
-      setAnswered(false)
-      setIsCorrect(false)
+      setAnswered(false);
+      setIsCorrect(false);
     }
-  }, [questionId, existingAnswer])
+  }, [questionId, existingAnswer]);
 
   if (!question) {
     return (
@@ -49,24 +49,24 @@ export default function QuizPage({ params }: QuizPageProps) {
           <Button onClick={() => router.push(`/${locale}`)}>{t("goBack")}</Button>
         </div>
       </QuizLayout>
-    )
+    );
   }
 
   const handleAnswer = (correct: boolean, selectedOptionId?: string) => {
     if (!answered && selectedOptionId) {
-      addAnswer(questionId, selectedOptionId, correct)
-      setAnswered(true)
-      setIsCorrect(correct)
+      addAnswer(questionId, selectedOptionId, correct);
+      setAnswered(true);
+      setIsCorrect(correct);
     }
-  }
+  };
 
   const handleNext = () => {
     if (nextQuestionId) {
-      router.push(`/${locale}/quiz/${nextQuestionId}`)
+      router.push(`/${locale}/quiz/${nextQuestionId}`);
     } else {
-      router.push(`/${locale}/quiz/results`)
+      router.push(`/${locale}/quiz/results`);
     }
-  }
+  };
 
   return (
     <QuizLayout currentQuestion={questionId} totalQuestions={TOTAL_QUESTIONS}>
@@ -106,5 +106,5 @@ export default function QuizPage({ params }: QuizPageProps) {
         )}
       </div>
     </QuizLayout>
-  )
+  );
 }
