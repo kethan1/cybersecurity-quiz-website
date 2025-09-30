@@ -1,4 +1,5 @@
 import enQuiz from "@/messages/messages.en";
+import { QuestionId, OptionKey } from "@/messages/types";
 
 export interface QuizOption {
   id: string;
@@ -21,7 +22,7 @@ export interface QuizQuestion {
 }
 
 // Access the canonical question ids from the message file
-const questionIds = Object.keys((enQuiz as any).quiz.questions)
+const questionIds = Object.keys(enQuiz.quiz.questions)
   .map((k) => Number(k))
   .sort((a, b) => a - b);
 
@@ -48,13 +49,13 @@ export function getLocalizedQuestion(
   t: (key: string) => string,
   id: number,
 ): QuizQuestion | undefined {
-  const base = (enQuiz as any).quiz.questions[String(id)];
+  const base = enQuiz.quiz.questions[String(id) as QuestionId];
   if (!base) return undefined;
 
   const options: QuizOption[] = Object.keys(base.options).map((optId: string) => ({
     id: optId,
     text: t(`quiz.questions.${id}.options.${optId}.text`),
-    isCorrect: !!base.options[optId].isCorrect,
+    isCorrect: !!base.options[optId as OptionKey].isCorrect,
     explanation: t(`quiz.questions.${id}.options.${optId}.explanation`),
   }));
 

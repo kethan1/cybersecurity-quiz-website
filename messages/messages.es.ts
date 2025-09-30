@@ -1,4 +1,4 @@
-import type { Messages } from "./messages";
+import type { Messages } from "./types";
 
 const es: Messages = {
   app: {

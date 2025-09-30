@@ -23,21 +23,18 @@ export default function QuizPage({ params }: QuizPageProps) {
   const router = useRouter();
   const questionId = Number.parseInt(id);
   const [answered, setAnswered] = useState(false);
-  const [isCorrect, setIsCorrect] = useState(false);
 
   const { addAnswer, getAnswerForQuestion } = useQuizStore();
 
-  const question = getLocalizedQuestion(t as any, questionId);
+  const question = getLocalizedQuestion(t, questionId);
   const nextQuestionId = getNextQuestionId(questionId);
   const existingAnswer = getAnswerForQuestion(questionId);
 
   useEffect(() => {
     if (existingAnswer) {
       setAnswered(true);
-      setIsCorrect(existingAnswer.isCorrect);
     } else {
       setAnswered(false);
-      setIsCorrect(false);
     }
   }, [questionId, existingAnswer]);
 
@@ -56,7 +53,6 @@ export default function QuizPage({ params }: QuizPageProps) {
     if (!answered && selectedOptionId) {
       addAnswer(questionId, selectedOptionId, correct);
       setAnswered(true);
-      setIsCorrect(correct);
     }
   };
 
